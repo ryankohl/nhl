@@ -5,7 +5,15 @@
 prefix : <http://www.nhl.com/> 
 prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
 construct { ?team :name ?name }
-{ ?team a :Team . ?team rdfs:label ?name }
+{ select distinct ?team ?name
+ { ?game :team ?team . ?team rdfs:label ?name }
+}
+")
+
+(def game-teams "
+prefix : <http://www.nhl.com/>
+construct { ?game :hometeam ?home . ?game :awayteam ?away }
+{ ?game :hometeam ?home . ?game :awayteam ?away }
 ")
 
 (def hometeam-hits "
@@ -139,19 +147,23 @@ construct { ?game :awayGoals ?goals }
 ")
 
 (defn build-model [m]
-  (build   (pull team-names m)
+  (build
+   (pull team-names m)
+   (pull game-teams m)
+   (pull hometeam-hits m)
+   (pull hometeam-violent-pim m)
+   (pull hometeam-pim m)
+   (pull hometeam-shots m)
+   (pull hometeam-fightPim m)  
+   (pull hometeam-goals m)
 
-           (pull hometeam-hits m)
-           (pull hometeam-violent-pim m)
-           (pull hometeam-pim m)
-           (pull hometeam-shots m)
-           (pull hometeam-fightPim m)
-           (pull hometeam-goals m)
-           
-           (pull awayteam-hits m)
-           (pull awayteam-violent-pim m)
-           (pull awayteam-pim m)
-           (pull awayteam-shots m)
-           (pull awayteam-fightPim m)
-           (pull awayteam-goals m)
-           ))
+   (pull awayteam-hits m)
+   (pull awayteam-violent-pim m)
+   (pull awayteam-pim m)
+   (pull awayteam-shots m)
+   (pull awayteam-fightPim m)  
+   (pull awayteam-goals m)                
+   ))
+
+
+

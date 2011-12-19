@@ -1,13 +1,19 @@
 # nhl
 
-FIXME: write description
+theme: summary
+- who are the biggest bullys?
+- who are the biggest magnets?
+- what were the most physical games?
+- which team pairings are the most physical?
 
-## Usage
-
-FIXME: write
+theme: player details
+- penalty minutes, broken down by penalty type
+- goals, assists, hits
+- top five players this guy hits
+- top five players who hit this guy
 
 ## License
 
-Copyright (C) 2011 FIXME
+Copyright (C) 2011
 
 Distributed under the Eclipse Public License, the same as Clojure.
