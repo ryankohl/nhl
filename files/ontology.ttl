@@ -1,0 +1,43 @@
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix nhl:     <http://www.nhl.com/> .
+
+nhl:hometeam     rdfs:domain nhl:Game;
+                 rdfs:range nhl:Team;
+                 rdfs:subPropertyOf nhl:team .
+                                
+nhl:awayteam     rdfs:domain nhl:Game;
+                 rdfs:range nhl:Team;
+                 rdfs:subPropertyOf nhl:team .
+
+nhl:FightingPenalty 	 rdfs:subClassOf nhl:Penalty .
+nhl:Fight		 rdfs:subClassOf nhl:FightingPenalty .
+nhl:FightingMaj		 rdfs:subClassOf nhl:FightingPenalty .
+    
+nhl:ViolentPenalty       rdfs:subClassOf nhl:Penalty .
+nhl:Charging             rdfs:subClassOf nhl:ViolentPenalty .
+nhl:HighSticking-DoubleMinor    rdfs:subClassOf nhl:ViolentPenalty .
+nhl:Roughing             rdfs:subClassOf nhl:ViolentPenalty .
+nhl:Slashing             rdfs:subClassOf nhl:ViolentPenalty .
+nhl:Unsportsmanlike      rdfs:subClassOf nhl:ViolentPenalty .
+
+nhl:Boarding             nhl:penaltyMinutes 2 .
+nhl:Charging             nhl:penaltyMinutes 2 .
+nhl:CrossChecking	 nhl:penaltyMinutes 2 .
+nhl:DelayOfGame          nhl:penaltyMinutes 2 .
+nhl:Elbowing             nhl:penaltyMinutes 2 .
+nhl:Fight                nhl:penaltyMinutes 5 .
+nhl:FightingMaj          nhl:penaltyMinutes 10 .
+nhl:HighSticking         nhl:penaltyMinutes 2 .
+nhl:HighSticking-DoubleMinor    nhl:penaltyMinutes 4 .
+nhl:Holding              nhl:penaltyMinutes 2 .
+nhl:Hooking              nhl:penaltyMinutes 2 .
+nhl:Interference         nhl:penaltyMinutes 2 .
+nhl:Misconduct           nhl:penaltyMinutes 10 .
+nhl:Roughing             nhl:penaltyMinutes 2 .
+nhl:Slashing             nhl:penaltyMinutes 2 .
+nhl:Tripping             nhl:penaltyMinutes 2 .
+nhl:Unsportsmanlike      nhl:penaltyMinutes 2 .
+
+<http://dbpedia.org/resource/St._Louis_Blues_%28ice_hockey%29> rdfs:label "St Louis Blues" .
