@@ -1,0 +1,14 @@
+$.ready() {
+    getData();
+}
+
+function getData() {
+    $.getJSON('/data', function(data) {
+	getTeams();
+	renderData();
+    });
+}
+
+function renderData() {
+    
+}
